@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Sign Up</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            background-color: #fff;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .container h2 {
+            color: #ff69b4;
+            margin-bottom: 20px;
+        }
+
+        .input-group {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        .input-group label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .input-group input[type="text"],
+        .input-group input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            color: black;
+        }
+
+        .error-message {
+            color: red;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body class="bg-black">
+<div class="flex flex-col items-center justify-center gap-9">
+    <div class="flex flex-col items-center justify-center max-w-[1000px]">
+        <h1 class="mb-4 text-4xl font-extrabold leading-none tracking-tight text-white md:text-5xl lg:text-6xl">
+            Welcome to <span class="text-blue-700">Hermes</span>!
+        </h1>
+        <p class="mb-6 text-lg font-normal text-gray-500 lg:text-xl sm:px-16 xl:px-48 dark:text-gray-400 text-center">
+            An End-to-End Payment Gateway application developed using Spring Boot, leveraging OOAD principles with support for payments, stock investments, and much more.
+        </p>
+    </div>
+
+    <form action="/sign-up" method="post" class="login-form text-white w-[300px]">
+        <h2>Sign Up</h2>
+        <div class="input-group">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" required />
+        </div>
+        <div class="input-group">
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" required />
+        </div>
+        <div class="input-group">
+            <label for="phoneNumber">Phone Number</label>
+            <input type="text" id="phoneNumber" name="phoneNumber" required />
+        </div>
+        <div class="input-group">
+            <label for="accountType">Account Type</label>
+            <input type="text" id="accountType" name="accountType" required />
+        </div>
+        <button type="submit" class="bg-blue-700 p-3 rounded-xl hover:bg-blue-400 transition ease-in duration-100">Sign Up</button>
+        <p class="error-message" id="error-message" th:text="${errorMessage}"></p>
+    </form>
+
+    <div class="text-white mt-4">
+        <p>Already have an account? <a href="/login" class="text-blue-700">Log in</a></p>
+    </div>
+</div>
+</body>
+</html>
